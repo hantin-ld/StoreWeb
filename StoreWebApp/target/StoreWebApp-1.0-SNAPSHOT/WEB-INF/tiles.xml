@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/XML/XMLDocument.xml to edit this template
+-->
+
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+    <definition name="baselayout" template="/WEB-INF/layout/base.jsp">
+        <put-attribute name="title" value="base"/>
+        <put-attribute name="header" value="/WEB-INF/layout/header.jsp"/>
+        <put-attribute name="content" value="Test layout"/>
+        <put-attribute name="footer" value="/WEB-INF/layout/footer.jsp"/>
+    </definition>
+<!--    view trang chủ --> 
+    <definition name="home-page" extends="baselayout">
+        <put-attribute name="title" value="Home Page"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/homePage.jsp"/>
+    </definition>
+    
+    <!--trang chi tiết sản phẩm-->
+    <definition name="product-detail" extends="baselayout">
+        <put-attribute name="title" value="Product Detail Page"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/product-detail.jsp"/>
+    </definition>
+    
+    <definition name="cart-page" extends="baselayout">
+        <put-attribute name="title" value="Cart Page"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/cartPage.jsp"/>
+    </definition>
+    <!--view đăng nhập-->
+    <definition name="login-page" extends="baselayout">
+        <put-attribute name="title" value="Login Page"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/login.jsp"/>
+    </definition>
+    <!--view đăng kí-->
+    <definition name="register-page" extends="baselayout">
+        <put-attribute name="title" value="Register Page"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/register.jsp"/>
+    </definition>
+    
+    <definition name="adminlayout" template="/WEB-INF/layout/baseAdmin.jsp">
+        <put-attribute name="title" value="Admin"/>
+        <put-attribute name="left" value="/WEB-INF/layout/leftAdmin.jsp"/>
+        <put-attribute name="content" value="Admin layout"/>
+        <put-attribute name="footer" value="/WEB-INF/layout/footerAdmin.jsp"/>
+    </definition>
+    
+    <definition name="category-statistic" extends="adminlayout">
+        <put-attribute name="title" value="Statistic By Category"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/categoryStatis.jsp"/>
+    </definition>
+    
+    <definition name="product-statistic" extends="adminlayout">
+        <put-attribute name="title" value="Statistic By Product"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/productStatis.jsp"/>
+    </definition>
+    
+    <definition name="product-month-statistic" extends="adminlayout">
+        <put-attribute name="title" value="Statistic By Product"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/productMonthStatis.jsp"/>
+    </definition>
+    
+</tiles-definitions>
