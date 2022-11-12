@@ -48,7 +48,7 @@
     <c:forEach var="h" items="${hotProduct}">
         <div class="col-md-4 col-xs-12" style="padding-top: 16px">
             <div class="card">
-                <a href="<c:url value="/product/${h[0]}" />">
+                <a href="<c:url value="/products/${h[0]}" />">
                     <c:choose>
                         <c:when test="${h[3] != null && h[3].startsWith('http')== true}">
                             <img class="card-img-top img-fluid" src="${h[3]}" alt="Card image" />
@@ -62,7 +62,7 @@
                     <h4 class="card-title">${h[1]}</h4>
                     <p class="card-text">${h[2]} VND</p>
                     <p class="text-danger">Số lượng bán: ${h[4]}</p>
-                    <a href="#" class="btn btn-primary">Đặt hàng</a>
+                    <a href="#" class="btn btn-primary" onclick="addToCart(${h[0]},'${h[1]}',${h[2]})">Đặt hàng</a>
                 </div>
             </div>
         </div>
@@ -75,24 +75,24 @@
 </div>
 <hr>
 <div class="row">
-    <c:forEach var="h" items="${hotCommentProduct}">
+    <c:forEach var="hc" items="${hotCommentProduct}">
         <div class="col-md-4 col-xs-12" style="padding-top: 16px">
             <div class="card">
-                <a href="<c:url value="/product/${h[0]}" />">
+                <a href="<c:url value="/products/${hc[0]}" />">
                     <c:choose>
-                        <c:when test="${h[3] != null && h[3].startsWith('http')== true}">
-                            <img class="card-img-top img-fluid" src="${h[3]}" alt="Card image" />
+                        <c:when test="${hc[3] != null && hc[3].startsWith('http')== true}">
+                            <img class="card-img-top img-fluid" src="${hc[3]}" alt="Card image" />
                         </c:when>
-                        <c:when test="${h[3] == null || h[3].startsWith('http')== false }">
+                        <c:when test="${hc[3] == null || hc[3].startsWith('http')== false }">
                             <img class="card-img-top img-fluid" src="<c:url value="/images/productDefault.png"/>" alt="Card image" />
                         </c:when>
                     </c:choose>
                 </a>
                 <div class="card-body">
-                    <h4 class="card-title">${h[1]}</h4>
-                    <p class="card-text">${h[2]} VND</p>
-                    <p class="text-danger">Số lượng thảo luận: ${h[4]}</p>
-                    <a href="#" class="btn btn-primary">Đặt hàng</a>
+                    <h4 class="card-title">${hc[1]}</h4>
+                    <p class="card-text">${hc[2]} VND</p>
+                    <p class="text-danger">Số lượng thảo luận: ${hc[4]}</p>
+                    <a href="#" class="btn btn-primary" onclick="addToCart(${hc[0]},'${hc[1]}',${hc[2]})">Đặt hàng</a>
                 </div>
             </div>
         </div>
