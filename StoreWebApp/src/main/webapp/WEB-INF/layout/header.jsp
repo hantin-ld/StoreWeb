@@ -55,7 +55,7 @@
             <%--<c:when test="${pageContext.request.userPrincipal.name != null}">--%>
             <c:if test="${pageContext.request.userPrincipal.name != null}">
                 <li class="nav-item active">
-                    <a class="nav-link" href="<c:url value="/" />">
+                    <a class="nav-link" href="<c:url value="/user" />">
                         <c:if test="${currentUser.avatar != null}">
                             <img src="${currentUser.avatar}" width="25px" height="auto" alt="img" class="img-fluid rounded-circle"/>
                         </c:if>

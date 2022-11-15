@@ -48,4 +48,9 @@ public class UserController {
         
         return "register-page";
     }
+    
+    @GetMapping("/user")
+    public String userDetail(Model model){
+        return "user-detail";
+    }
 }

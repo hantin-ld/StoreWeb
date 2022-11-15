@@ -107,6 +107,10 @@ public class User implements Serializable {
     @Column(name = "avatar")
     private String avatar;
     
+    @Size(min = 1, max = 150)
+    @Column(name = "address")
+    private String address;
+    
     @Transient
     @JsonIgnore
     private MultipartFile file;
@@ -288,6 +292,20 @@ public class User implements Serializable {
      */
     public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
+    }
+
+    /**
+     * @return the address
+     */
+    public String getAddress() {
+        return address;
+    }
+
+    /**
+     * @param address the address to set
+     */
+    public void setAddress(String address) {
+        this.address = address;
     }
     
 }
