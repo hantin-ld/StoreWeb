@@ -26,6 +26,11 @@ public class AdminController {
     @Autowired
     private StatisticService statisticService;
     
+    @GetMapping("/statistic")
+    public String statisticView(){
+        return "adminlayout";
+    }
+    
     @GetMapping("/category-statistic")
     public String categoryStatis(Model model){
         model.addAttribute("cateStatis", this.statisticService.cateStatis());

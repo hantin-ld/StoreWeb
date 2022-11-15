@@ -7,7 +7,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 
 <nav class="navbar navbar-expand-md bg-dark navbar-dark ">
@@ -84,5 +84,16 @@
             <input class="form-control mr-sm-2" type="text" name="kw" placeholder="Nhập tên sản phẩm ...">
             <button class="btn btn-success" type="submit" value="Search">Search</button>
         </form>
-    </div>
+    </div>   
 </nav>
+            
+<sec:authorize access="hasRole('ROLE_ADMIN')">
+    <div class="bg-dark">
+        <div class="form-inline " style="margin: 0 16px; padding: 8px 0 ">
+            <a href="#" class="btn btn-danger mr-sm-2" >QUẢN LÝ SẢN PHẨM</a>
+            <a href="<c:url value="/admin/statistic"/>" class="btn btn-danger">THỐNG KÊ - BÁO CÁO</a>
+        </div>
+    </div>
+    
+        
+</sec:authorize>             

@@ -19,6 +19,9 @@
         <li class="nav-item">
             <a class="nav-link" href="<c:url value="/admin/product-month-statistic"/>">Thống kê doanh thu theo thời gian</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link text-danger" href="<c:url value="/"/>">Quay lại trang chủ</a>
+        </li>
     </ul>
 
 </nav>
