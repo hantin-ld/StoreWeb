@@ -19,6 +19,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/XML/XMLDocument.xml to edit this 
         <put-attribute name="content" value="/WEB-INF/jsp/homePage.jsp"/>
     </definition>
     
+    <!--trang thêm sản phẩm-->
+     <definition name="product-add" extends="baselayout">
+        <put-attribute name="title" value="Add Product"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/productAdd.jsp"/>
+    </definition>
+    
     <!--trang chi tiết sản phẩm-->
     <definition name="product-detail" extends="baselayout">
         <put-attribute name="title" value="Product Detail Page"/>

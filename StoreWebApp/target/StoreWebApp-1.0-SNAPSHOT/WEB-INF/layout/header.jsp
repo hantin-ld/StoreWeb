@@ -7,7 +7,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 
 <nav class="navbar navbar-expand-md bg-dark navbar-dark ">
@@ -55,7 +55,7 @@
             <%--<c:when test="${pageContext.request.userPrincipal.name != null}">--%>
             <c:if test="${pageContext.request.userPrincipal.name != null}">
                 <li class="nav-item active">
-                    <a class="nav-link" href="<c:url value="/" />">
+                    <a class="nav-link" href="<c:url value="/user" />">
                         <c:if test="${currentUser.avatar != null}">
                             <img src="${currentUser.avatar}" width="25px" height="auto" alt="img" class="img-fluid rounded-circle"/>
                         </c:if>
@@ -84,5 +84,14 @@
             <input class="form-control mr-sm-2" type="text" name="kw" placeholder="Nhập tên sản phẩm ...">
             <button class="btn btn-success" type="submit" value="Search">Search</button>
         </form>
-    </div>
+    </div>   
 </nav>
+            
+<sec:authorize access="hasRole('ROLE_ADMIN')">
+    <div class="bg-dark">
+        <div class="form-inline " style="margin: 0 16px; padding: 8px 0 ">
+            <a href="<c:url value="/admin/add-product"/>" class="btn btn-danger mr-sm-5" >THÊM SẢN PHẨM</a> 
+            <a href="<c:url value="/admin/statistic"/>" class="btn btn-danger mr-sm-5" >THỐNG KÊ - BÁO CÁO</a>  
+        </div>
+    </div>       
+</sec:authorize>             

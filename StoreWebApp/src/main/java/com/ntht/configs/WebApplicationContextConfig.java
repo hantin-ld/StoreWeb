@@ -6,11 +6,13 @@ package com.ntht.configs;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
+import com.ntht.formatter.CategoryFormatter;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.format.FormatterRegistry;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
@@ -45,6 +47,11 @@ public class WebApplicationContextConfig implements WebMvcConfigurer{
         registry.addResourceHandler("/css/**").addResourceLocations("/resource/css/");
         registry.addResourceHandler("/images/**").addResourceLocations("/resource/images/");
         registry.addResourceHandler("/js/**").addResourceLocations("/resource/js/");
+    }
+    
+    @Override
+    public void addFormatters(FormatterRegistry registry){
+        registry.addFormatter(new CategoryFormatter());
     }
     
     @Bean // view Resolver đơn giản nhất lấy file.jsp

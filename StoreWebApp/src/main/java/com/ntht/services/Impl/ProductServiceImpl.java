@@ -4,10 +4,15 @@
  */
 package com.ntht.services.Impl;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 import com.ntht.pojos.Product;
 import com.ntht.repositorys.ProductRepository;
 import com.ntht.services.ProductService;
+import java.io.IOException;
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +25,8 @@ public class ProductServiceImpl implements ProductService{
 
     @Autowired
     private ProductRepository productRepository;
+    @Autowired
+    private Cloudinary cloudinary;
     
     @Override
     public List<Product> getProducts(String kw, int page) {
@@ -38,7 +45,15 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public boolean addOrUpdate(Product product) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try {
+            Map r = this.cloudinary.uploader().upload(product.getFile().getBytes(), ObjectUtils.asMap("resource_type", "auto"));
+            product.setImage((String) r.get("secure_url"));
+            product.setCreatedDate(new Date());
+            return this.productRepository.addOrUpdate(product);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        return false; 
     }
 
     @Override

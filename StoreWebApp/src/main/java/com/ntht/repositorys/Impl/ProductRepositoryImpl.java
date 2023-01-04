@@ -13,6 +13,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -74,7 +75,15 @@ public class ProductRepositoryImpl implements ProductRepository{
 
     @Override
     public boolean addOrUpdate(Product product) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        try{
+            session.save(product);
+            return true;
+        }catch(HibernateException ex){
+            System.err.println("=== ADD PRODUCT ERROR ===" + ex.getMessage());
+            ex.printStackTrace();
+        }
+        return false;
     }
 
     @Override

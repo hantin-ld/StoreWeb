@@ -90,10 +90,8 @@
 <sec:authorize access="hasRole('ROLE_ADMIN')">
     <div class="bg-dark">
         <div class="form-inline " style="margin: 0 16px; padding: 8px 0 ">
-            <a href="#" class="btn btn-danger mr-sm-2" >QUẢN LÝ SẢN PHẨM</a>
-            <a href="<c:url value="/admin/statistic"/>" class="btn btn-danger">THỐNG KÊ - BÁO CÁO</a>
+            <a href="<c:url value="/admin/add-product"/>" class="btn btn-danger mr-sm-5" >THÊM SẢN PHẨM</a> 
+            <a href="<c:url value="/admin/statistic"/>" class="btn btn-danger mr-sm-5" >THỐNG KÊ - BÁO CÁO</a>  
         </div>
-    </div>
-    
-        
+    </div>       
 </sec:authorize>             

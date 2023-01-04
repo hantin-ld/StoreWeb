@@ -10,6 +10,7 @@ com\ntht\utils\Utils.class
 com\ntht\services\OrderSevice.class
 com\ntht\configs\HibernateConfig.class
 com\ntht\controllers\UserController.class
+com\ntht\formatter\CategoryFormatter.class
 com\ntht\pojos\SaleOrder.class
 com\ntht\services\Impl\StatisticServiceImpl.class
 com\ntht\pojos\Manufacturer_.class

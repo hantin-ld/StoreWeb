@@ -31,7 +31,7 @@
         <h3 class="text-danger">${product.price} VND</h3>
         <p>Mô tả: ${product.description}</p>
         <div>
-            <input type="button" value="Đặt hàng" class="btn btn-danger" />
+            <input type="button" onclick="addToCart(${product.id},'${product.name}',${product.price})" value="Đặt hàng" class="btn btn-danger" />
         </div>
     </div>
 </div>
